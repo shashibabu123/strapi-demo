@@ -15,8 +15,8 @@ resource "aws_instance" "strapi" {
               sudo apt install -y nodejs
               sudo npm install -g yarn pm2
 
-              git clone https://github.com/<your-username>/<your-strapi-repo>.git
-              cd <your-strapi-repo>
+              git clone https://github.com/shashibabu123/strapi-demo.git
+              cd strapi-demo
               yarn install
               yarn build
               pm2 start yarn --name strapi -- develop
