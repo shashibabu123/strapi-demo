@@ -401,6 +401,37 @@ export interface ApiDevopsArticleDevopsArticle
   };
 }
 
+export interface ApiMyFirstDevOpsBlogMyFirstDevOpsBlog
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'my_first_dev_ops_blogs';
+  info: {
+    displayName: 'My First DevOps Blog';
+    pluralName: 'my-first-dev-ops-blogs';
+    singularName: 'my-first-dev-ops-blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    authorname: Schema.Attribute.String;
+    blogTitle: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::my-first-dev-ops-blog.my-first-dev-ops-blog'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -911,6 +942,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::devops-article.devops-article': ApiDevopsArticleDevopsArticle;
+      'api::my-first-dev-ops-blog.my-first-dev-ops-blog': ApiMyFirstDevOpsBlogMyFirstDevOpsBlog;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

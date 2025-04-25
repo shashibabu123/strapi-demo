@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "my_first_dev_ops_blogs",
+  "info": {
+    "singularName": "my-first-dev-ops-blog",
+    "pluralName": "my-first-dev-ops-blogs",
+    "displayName": "My First DevOps Blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "blogTitle": {
+      "type": "string"
+    },
+    "authorname": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}
